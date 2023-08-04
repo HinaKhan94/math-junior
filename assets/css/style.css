@@ -1,3 +1,32 @@
+/* Google fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 body {
+    margin: 0;
+    padding: 0;
+    font-family: luckiest guy, sans-serif;
+    background-color: blueviolet;
+
+}
+
+/* Title and the functions-bar */
+
+.header {
     background-color: aqua;
+    padding: 20px, 10px;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.title {
+    font-size: 350%;
+    padding-left: 23px;
+}
+
+.functions-bar {
+    float: right;
+    padding-right: 20%;
+    background-color: azure;
 }
