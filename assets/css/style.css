@@ -85,3 +85,53 @@ body {
     color: white;
     background-color: darkred;
 }
+
+/* game.question section */
+
+.game-question {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    background-color: beige;
+   
+}
+
+#num1 {
+    color: greenyellow;
+    font-weight: 600;
+    font-size: 80px;
+    border: 5px solid black;
+    padding: 20px 50px 20px 50px;
+
+}
+
+#num2 {
+    color: blue;
+    font-weight: 600;
+    font-size: 80px;
+    border: 5px solid black;
+    padding: 20px 50px 20px 50px;
+}
+
+#question-mark {
+    color: palevioletred;
+    font-weight: 600;
+    font-size: 80px;
+    border: 5px solid black;
+    padding: 20px 50px 20px 50px;
+}
+
+.game-operators {
+    color: black;
+    font-weight: 600;
+    font-size: 80px;
+    border: 5px solid black;
+    padding: 20px 50px 20px 50px;
+}
+/* media queries with max-width 850 */
+@media  screen and (max-width: 850px) {
+     .btn {
+        font-size: 21px;
+     }
+}
