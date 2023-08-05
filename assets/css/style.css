@@ -29,7 +29,6 @@ body {
 
 .functions-bar {
     float: right;
-    background-color: azure;
 }
 
 /* Buttons --- */
@@ -40,6 +39,10 @@ body {
     font-family: luckiest guy, sans-serif;
     text-transform: uppercase;
     font-size: 25px;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .btn-green {
@@ -104,7 +107,6 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    background-color: beige;
     letter-spacing: 38px;
     text-align: center;
     height: 165px;
@@ -115,22 +117,18 @@ body {
     color: greenyellow;
     font-weight: 600;
     font-size: 90px;
-    
-
 }
 
 #num2 {
     color: blue;
     font-weight: 600;
     font-size: 90px;
-   
 }
 
-#question-mark {
+.question-mark {
     color: palevioletred;
     font-weight: 600;
-    font-size: 90px;
-   
+    font-size: 90px;  
 }
 
 .game-operators {
@@ -144,7 +142,6 @@ body {
 
 .options-area {
     text-align: center;
-    background-color: red;
     padding: 20px 0 20px 0;
 }
 
@@ -165,7 +162,25 @@ body {
 .optionbtn:hover {
     background-color: green;
     color: white;
+    cursor: pointer;
     
+}
+
+/* Scores section */
+
+.score-area {
+    text-align: center;
+}
+
+.scores {
+    font-size: 25px;
+    display: inline-block;
+    padding: 25px;
+    border: 2px solid
+}
+
+.score-area span {
+    color: red;
 }
 
 /* media queries with max-width 850 */
