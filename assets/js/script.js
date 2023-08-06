@@ -1,67 +1,74 @@
-// wait for Dom to finish loading before playing the game 
 
-document.addEventListener('DOMContentLoaded', function() {
-    let controls = document.getElementsByClassName('btn');
+let button1 = document.getElementById('addition');
+    button1.addEventListener('click', function(){
+    let operand1 = Math.floor(Math.random() * 10) + 1;
+    let operand2 = Math.floor(Math.random() * 10) + 1;
+    answer= operand1+operand2
 
-    for (controls in btn) {
-        controls.addEventListener('click', fucntion() {
-            if (controls.getAttribute('data-type') === 'addition') {
-                startGame(game);
-            } else {
-                alert('unknown value');
-            }
-        })
-    }
-})
+   displayadd(operand1, operand2)
+   displayOptions(answer)
+    })
 
-/**
- * The main game starts when the script is loaded
- * and the user's answer has been processed
-*/
+let button2 = document.getElementById('subtract');
+    button2.addEventListener('click', function(){
+    let operand1 = Math.floor(Math.random() * 10) + 1;
+    let operand2 = Math.floor(Math.random() * 10) + 1;
 
-function startGame(game) {
+   displaysubtract(operand1, operand2)
+    })
 
-    // creats two random numbers between 1 and 15
-    let operand1 = Math.floor(Math.random()* 15) + 1;
-    let operand2 = Math.floor(Math.random()* 15) + 1;
+let button3 = document.getElementById('multiply');
+    button3.addEventListener('click', function(){
+    let operand1 = Math.floor(Math.random() * 10) + 1;
+    let operand2 = Math.floor(Math.random() * 10) + 1;
 
-    if (game === 'addQuestion') {
-        addQuestion(num1, num2);
-    } else {
-        alert(`Unknown game type: ${game}´);
-        throw `Unknown game type: ${game}. Aborting!`;
-    }
+   displaymultiply(operand1, operand2)
+    })
 
+let button4 = document.getElementById('divide');
+    button4.addEventListener('click', function(){
+    let operand1 = Math.floor(Math.random() * 10) + 1;
+    let operand2 = Math.floor(Math.random() * 10) + 1;
+
+   displaydivide(operand1, operand2)
+    })    
+
+
+function displayadd(a,b) {
+    document.getElementById('num1').textContent = a
+    document.getElementById('num2'). textContent = b
+    document.getElementById('operand'). textContent = '+'
 }
 
-function addQuestion(num1, num2) {
-
-        document.getElementById('num1').textContent = num1;
-        document.getElementById('num2').textContent = num2;
-        document.getElementById('operand').textContent = '+';
-
+function displaysubtract(a,b) {
+    document.getElementById('num1').textContent = a
+    document.getElementById('num2'). textContent = b
+    document.getElementById('operand'). textContent = '-'
 }
 
-function subtractQuestion(num1, num2) {
-    
-    document.getElementById('num1').textContent = num1;
-    document.getElementById('num2').textContent = num2;
-    document.getElementById('operand').textContent = '-';
-
+function displaymultiply(a,b) {
+    document.getElementById('num1').textContent = a
+    document.getElementById('num2'). textContent = b
+    document.getElementById('operand'). textContent = 'x'
 }
 
-function multiplyQuestion(num1, num2) {
-    
-    document.getElementById('num1').textContent = num1;
-    document.getElementById('num2').textContent = num2;
-    document.getElementById('operand').textContent = '*';
-
+function displaydivide(a,b) {
+    document.getElementById('num1').textContent = a
+    document.getElementById('num2'). textContent = b
+    document.getElementById('operand'). textContent = '/'
 }
 
-function divideQuestion(num1, num2) {
-    
-    document.getElementById('num1').textContent = num1;
-    document.getElementById('num2').textContent = num2;
-    document.getElementById('operand').textContent = '/';
+function displayOptions(c){
+    let option1= Math.floor(Math.random() * 100) + 1
+    let option2= Math.floor(Math.random() * 100) + 1
+    let option3= Math.floor(Math.random() * 100) + 1
+
+    let normal= [option1, option2, option3, c]
+
+    document.getElementById('option1').textContent = option1
+    document.getElementById('option2'). textContent = option2
+    document.getElementById('option3'). textContent = option3
+    document.getElementById('option4').textContent = c
+
 
 }
