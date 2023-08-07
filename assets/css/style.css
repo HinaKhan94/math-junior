@@ -109,7 +109,6 @@ body {
     position: relative;
     letter-spacing: 38px;
     text-align: center;
-    height: 165px;
    
 }
 
@@ -182,10 +181,109 @@ body {
 .score-area span {
     color: red;
 }
+/* Media Queries */
+@media  screen and  (max-width: 720px) {
+    .wrapper {
+        height: 89vh;
+    }
+}
+    
 
-/* media queries with max-width 850 */
-@media  screen and (max-width: 850px) {
-     .btn {
-        font-size: 21px;
+/* media queries with max-width 390 */
+
+@media screen and  (max-width: 465px) {
+    .title {
+        font-size: 178%;
+    }
+
+    .wrapper {
+        height: 71vh;
+    }
+
+    .btn {
+        font-size: 17px;
+        width: 170px;
+     }
+    
+     .game-operators {
+        font-size: 50px;
+     }
+
+     #num1, #num2 {
+        font-size: 55px;
+     }
+
+     .question-mark {
+        font-size: 55px;
+     }
+
+     .game-question {
+        letter-spacing: 23px;
+     }
+     .optionbtn {
+        height: 108px;
+        width: 108px;
+     }
+
+     .score-area {
+        padding-top: 18px;
+     }
+
+     .scores {
+      font-size: 12px;
      }
 }
+    
+
+@media  screen and (max-width: 390px) {
+
+    .title {
+        font-size: 154%;
+    }
+
+    .functions-bar {
+        column-count: 2;
+        padding-right: 10px;
+        padding-left: 15px;
+    }
+/*
+     .btn {
+        font-size: 17px;
+        width: 170px;
+     }
+
+     .wrapper {
+        height: 71vh;
+     }
+
+     .game-operators {
+        font-size: 50px;
+     }
+
+     #num1, #num2 {
+        font-size: 55px;
+     }
+
+     .question-mark {
+        font-size: 55px;
+     }
+
+     .game-question {
+        letter-spacing: 23px;
+     }
+
+     .optionbtn {
+        height: 100px;
+        width: 100px;
+     }
+
+     .score-area {
+        padding-top: 18px;
+     }
+
+     .scores {
+      font-size: 12px;
+     }
+*/
+
+} 
