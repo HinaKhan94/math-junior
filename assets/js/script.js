@@ -62,13 +62,15 @@ let button2 = document.getElementById('subtract');
     button2.addEventListener('click', function(){
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
+    answer1 = operand1 - operand2
 
    displaysubtract(operand1, operand2)
+   displayOptions(answer1)
 
    let result1 = document.getElementById('option1')
    result1.addEventListener('click', function(){
     sAnswer=result1.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer1){
         alert(right);
     } else {
         alert('wrong!')
@@ -77,7 +79,7 @@ let button2 = document.getElementById('subtract');
     let result2 = document.getElementById('option2')
    result2.addEventListener('click', function(){
     sAnswer=result2.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer1){
         alert('right');
     } else {
         alert('wrong!')
@@ -87,7 +89,7 @@ let button2 = document.getElementById('subtract');
     let result3 = document.getElementById('option3')
    result3.addEventListener('click', function(){
     sAnswer=result3.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer1){
         alert('right');
     } else {
         result3.style.backgroundColor = 'red';
@@ -97,7 +99,7 @@ let button2 = document.getElementById('subtract');
     let result4 = document.getElementById('option4')
    result4.addEventListener('click', function(){
     sAnswer=result4.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer1){
         alert('right');
     } else {
         alert('wrong!')
@@ -116,13 +118,15 @@ let button3 = document.getElementById('multiply');
     button3.addEventListener('click', function(){
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
+    answer2 = operand1 * operand2
 
    displaymultiply(operand1, operand2)
+   displayOptions(answer2)
 
    let result1 = document.getElementById('option1')
    result1.addEventListener('click', function(){
     sAnswer=result1.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer2){
         alert('right');
     } else {
         alert('wrong!')
@@ -131,7 +135,7 @@ let button3 = document.getElementById('multiply');
     let result2 = document.getElementById('option2')
    result2.addEventListener('click', function(){
     sAnswer=result2.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer2){
         alert('right');
     } else {
         alert('wrong!')
@@ -141,7 +145,7 @@ let button3 = document.getElementById('multiply');
     let result3 = document.getElementById('option3')
    result3.addEventListener('click', function(){
     sAnswer=result3.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer2){
         alert('right');
     } else {
         result3.style.backgroundColor = 'red';
@@ -151,7 +155,7 @@ let button3 = document.getElementById('multiply');
     let result4 = document.getElementById('option4')
    result4.addEventListener('click', function(){
     sAnswer=result4.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer2){
         alert('right');
     } else {
         alert('wrong!')
@@ -170,13 +174,15 @@ let button4 = document.getElementById('divide');
     button4.addEventListener('click', function(){
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
+    answer3 = operand1 / operand2
 
    displaydivide(operand1, operand2)
+   displayOptions(answer3)
 
    let result1 = document.getElementById('option1')
    result1.addEventListener('click', function(){
     sAnswer=result1.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer3){
         alert('right');
     } else {
         alert('wrong!')
@@ -185,7 +191,7 @@ let button4 = document.getElementById('divide');
     let result2 = document.getElementById('option2')
    result2.addEventListener('click', function(){
     sAnswer=result2.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer3){
         alert('right');
     } else {
         alert('wrong!')
@@ -195,7 +201,7 @@ let button4 = document.getElementById('divide');
     let result3 = document.getElementById('option3')
    result3.addEventListener('click', function(){
     sAnswer=result3.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer3){
         alert('right');
     } else {
         result3.style.backgroundColor = 'red';
@@ -205,7 +211,7 @@ let button4 = document.getElementById('divide');
     let result4 = document.getElementById('option4')
    result4.addEventListener('click', function(){
     sAnswer=result4.textContent
-    if (sAnswer == answer){
+    if (sAnswer == answer3){
         alert('right');
     } else {
         alert('wrong!')
@@ -252,8 +258,8 @@ function displayadd(a,b) {
 }
 
 function displaysubtract(a,b) {
-    document.getElementById('num1').textContent = a
-    document.getElementById('num2'). textContent = b
+    document.getElementById('num1').textContent = a > b ? a:b;
+    document.getElementById('num2'). textContent = a > b ? b:a;
     document.getElementById('operand'). textContent = '-'
 }
 
