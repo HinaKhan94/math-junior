@@ -182,14 +182,20 @@ body {
     color: red;
 }
 /* Media Queries */
+/* media queries with max-width 720px) */
+
 @media  screen and  (max-width: 720px) {
     .wrapper {
         height: 89vh;
     }
+
+    .scores {
+        font-size: 17px;
+    }
 }
     
 
-/* media queries with max-width 390 */
+/* media queries with max-width 465 */
 
 @media screen and  (max-width: 465px) {
     .title {

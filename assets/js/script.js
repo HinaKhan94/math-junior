@@ -6,7 +6,7 @@ let button1 = document.getElementById('addition');
     button1.addEventListener('click', function(){
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
-    answer= operand1+operand2
+    answer = operand1+operand2
 
    displayadd(operand1, operand2)
    displayOptions(answer)
@@ -69,7 +69,7 @@ let button2 = document.getElementById('subtract');
    result1.addEventListener('click', function(){
     sAnswer=result1.textContent
     if (sAnswer == answer){
-        alert('right');
+        alert(right);
     } else {
         alert('wrong!')
     }
@@ -214,6 +214,31 @@ let button4 = document.getElementById('divide');
 
 
 })
+
+       
+
+ //Function to check answer
+
+function answer() {
+
+ let num1 = parseInt(document.getElementById('num1').innerHTML);
+ let num2 = parseInt(document.getElementById('num2').innerHTML);
+ let sign = document.getElementById('operand').innerHTML
+
+ if (sign === '+') {
+    return [num1 + num2, 'addition'];
+ } else if (sign === '-') {
+    return [num1 + num2, 'subtract'];
+ } else if (sign === 'x') {
+    return [num1 + num2, 'multiply'];
+ } else if (sign === '/') {
+    return [num1 + num2, 'addition'];
+ } else {
+    alert(`Unknown sign ${sign}`);
+    throw `Unknwon operator ${sign}. Aborting!`;
+ }
+}
+
        
 /**
  * Function to display game type 
