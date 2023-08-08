@@ -2,31 +2,45 @@
  * Addition game loop, creates two random number 
  * with 4 random options to choose from 
  */
+const correct_score=[]
+const incorrect_score=[]
+let c_score= document.getElementById('correct')
+let ic_score= document.getElementById('incorrect')
+
 let button1 = document.getElementById('addition');
     button1.addEventListener('click', function(){
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
     answer = operand1+operand2
 
-   displayadd(operand1, operand2)
-   displayOptions(answer)
-
+    displayadd(operand1, operand2)
+    displayOptions(answer)
+    
    let result1 = document.getElementById('option1')
    result1.addEventListener('click', function(){
     sAnswer=result1.textContent
+    
     if (sAnswer == answer){
-        alert('right');
+        
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
+         
     } else {
-        result1.style.backgroundColor = 'red';
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
+    
     let result2 = document.getElementById('option2')
    result2.addEventListener('click', function(){
     sAnswer=result2.textContent
+
     if (sAnswer == answer){
-        alert('right');
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
     } else {
-        result2.style.backgroundColor = 'red';
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
 
@@ -34,9 +48,11 @@ let button1 = document.getElementById('addition');
    result3.addEventListener('click', function(){
     sAnswer=result3.textContent
     if (sAnswer == answer){
-        alert('right');
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
     } else {
-        result3.style.backgroundColor = 'red';
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
 
@@ -44,9 +60,11 @@ let button1 = document.getElementById('addition');
    result4.addEventListener('click', function(){
     sAnswer=result4.textContent
     if (sAnswer == answer){
-        alert('right');
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
     } else {
-        result4.style.backgroundColor = 'red';
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
 
@@ -62,7 +80,14 @@ let button2 = document.getElementById('subtract');
     button2.addEventListener('click', function(){
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
-    answer1 = operand1 - operand2
+    
+    if (operand1>operand2){
+        answer1 = operand1 - operand2
+    } else {
+        answer1 = operand2-operand1
+    }
+    
+       
 
    displaysubtract(operand1, operand2)
    displayOptions(answer1)
@@ -71,18 +96,22 @@ let button2 = document.getElementById('subtract');
    result1.addEventListener('click', function(){
     sAnswer=result1.textContent
     if (sAnswer == answer1){
-        alert(right);
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
     } else {
-        alert('wrong!')
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
     let result2 = document.getElementById('option2')
    result2.addEventListener('click', function(){
     sAnswer=result2.textContent
     if (sAnswer == answer1){
-        alert('right');
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
     } else {
-        alert('wrong!')
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
 
@@ -90,9 +119,11 @@ let button2 = document.getElementById('subtract');
    result3.addEventListener('click', function(){
     sAnswer=result3.textContent
     if (sAnswer == answer1){
-        alert('right');
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
     } else {
-        result3.style.backgroundColor = 'red';
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
 
@@ -100,9 +131,11 @@ let button2 = document.getElementById('subtract');
    result4.addEventListener('click', function(){
     sAnswer=result4.textContent
     if (sAnswer == answer1){
-        alert('right');
+        correct_value=scorecorrect(parseInt(c_score.textContent))
+        c_score.textContent= correct_value
     } else {
-        alert('wrong!')
+        incorrect_value=scoreincorrect(parseInt(ic_score.textContent))
+        ic_score.textContent= incorrect_value
     }
     })
 
@@ -224,7 +257,7 @@ let button4 = document.getElementById('divide');
        
 
  //Function to check answer
-
+/*
 function answer() {
 
  let num1 = parseInt(document.getElementById('num1').innerHTML);
@@ -243,13 +276,23 @@ function answer() {
     alert(`Unknown sign ${sign}`);
     throw `Unknwon operator ${sign}. Aborting!`;
  }
-}
+}*/
 
        
 /**
  * Function to display game type 
  * after the user has selected 
  */
+
+function scorecorrect(a){
+    score = a+1
+    return score;
+}
+function scoreincorrect(a){
+    score = a+1
+    return score;
+}
+
 
 function displayadd(a,b) {
     document.getElementById('num1').textContent = a
