@@ -1,11 +1,13 @@
-/**
- * Addition game loop, creates two random number 
- * with 4 random options to choose from 
- */
-const correct_score = 0;
-const incorrect_score = 0;
-let select_add = 0;
-let select_sub = 0;
+
+var correct_score = 0;
+var incorrect_score = 0;
+var flag_add = 0;
+var flag_sub = 0;
+var flag_mul = 0;
+var flag_div = 0;
+var answer_add = 0;
+var answer_sub = 0;
+var answer_mul = 0;
 let c_score = document.getElementById('correct');
 let ic_score = document.getElementById('incorrect');
 
@@ -19,8 +21,20 @@ let result2 = document.getElementById('option2');
 let result3 = document.getElementById('option3');
 let result4 = document.getElementById('option4');
 
+function scorecorrect(a) {
+    score = a + 1;
+    return score;
+}
+function scoreincorrect(a) {
+    score = a + 1;
+    return score;
+}
+
 button1.addEventListener('click', function () {
-    select_add = 1;
+    flag_add = 1;
+    flag_sub = 0;
+    flag_mul = 0;
+    flag_div = 0;
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
     answer_add = operand1 + operand2;
@@ -28,13 +42,11 @@ button1.addEventListener('click', function () {
     displayOptions(answer_add);
 
 });
-/**
-* Subtraction game loop, creates two random number 
-* with 4 random options to choose from 
-*/
-
 button2.addEventListener('click', function () {
-    select_sub = 1;
+    flag_add = 0;
+    flag_sub = 1;
+    flag_mul = 0;
+    flag_div = 0;
     let operand1 = Math.floor(Math.random() * 10) + 1;
     let operand2 = Math.floor(Math.random() * 10) + 1;
 
@@ -46,230 +58,232 @@ button2.addEventListener('click', function () {
     displaysubtract(operand1, operand2);
     displayOptions(answer_sub);
 });
+button3.addEventListener('click', function () {
+    flag_add = 0;
+    flag_sub = 0;
+    flag_mul = 1;
+    flag_div = 0;
+    let operand1 = Math.floor(Math.random() * 10) + 1;
+    let operand2 = Math.floor(Math.random() * 10) + 1;
+    answer_mul = operand1 * operand2;
+
+    displaymultiply(operand1, operand2);
+    displayOptions(answer_mul);
+});
+
+button4.addEventListener('click', function () {
+    flag_add = 0;
+    flag_sub = 0;
+    flag_mul = 0;
+    flag_div = 1;
+    let operand1 = Math.floor(Math.random() * 25) + 1;
+    let operand2 = Math.floor(Math.random() * 25) + 1;
+
+    while (operand1 % operand2) {
+        operand1 = Math.floor(Math.random() * 25) + 1;
+        operand2 = Math.floor(Math.random() * 25) + 1;
+    }
+    answer_div = operand1 / operand2;
+    displaydivide(operand1, operand2);
+    displayOptions(answer_div);
+
+});
 
 result1.addEventListener('click', function () {
     sAnswer = result1.textContent;
-    console.log(sAnswer, answer_add);
-    if (select_add === 1) {
+    while (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_add = 0;
         }
     }
-
-    if (select_sub === 1) {
+    while (flag_sub) {
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_sub = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_sub = 0;
         }
     }
-
+    while (flag_mul) {
+        if (sAnswer == answer_mul) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_mul = 0;
+        } else {
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_mul = 0;
+        }
+    }
+    while (flag_div) {
+        if (sAnswer == answer_div) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_div = 0;
+        } else {
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_div = 0;
+        }
+    }
 });
 
 result2.addEventListener('click', function () {
     sAnswer = result2.textContent;
-    console.log(sAnswer, answer_add);
-    if (select_add === 1) {
+    while (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_add = 0;
         }
     }
-
-    if (select_sub === 1) {
+    while (flag_sub) {
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_sub = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_sub = 0;
+        }
+    }
+    while (flag_mul) {
+        if (sAnswer == answer_mul) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_mul = 0;
+        } else {
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_mul = 0;
+        }
+    }
+    while (flag_div) {
+        if (sAnswer == answer_div) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_div = 0;
+        } else {
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_div = 0;
         }
     }
 });
 
 result3.addEventListener('click', function () {
     sAnswer = result3.textContent;
-    console.log(sAnswer, answer_add);
-    if (select_add === 1) {
+    while (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_add = 0;
         }
     }
-
-    if (select_sub === 1) {
+    while (flag_sub) {
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_sub = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_sub = 0;
+        }
+    }
+    while (flag_mul) {
+        if (sAnswer == answer_mul) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_mul = 0;
+        } else {
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_mul = 0;
+        }
+    }
+    while (flag_div) {
+        if (sAnswer == answer_div) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_div = 0;
+        } else {
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_div = 0;
         }
     }
 });
-
-
 result4.addEventListener('click', function () {
     sAnswer = result4.textContent;
-    console.log(sAnswer, answer_add);
-    if (select_add === 1) {
+    while (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_add = 0;
         }
     }
-    if (select_sub === 1) {
+    while (flag_sub) {
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
+            flag_sub = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            flag_sub = 0;
         }
     }
-});
-
-
-
-
-/**
- * Multiplication game loop, creates two random number 
- * with 4 random options to choose from 
- */
-
-button3.addEventListener('click', function () {
-    let operand1 = Math.floor(Math.random() * 10) + 1;
-    let operand2 = Math.floor(Math.random() * 10) + 1;
-    answer2 = operand1 * operand2;
-
-    displaymultiply(operand1, operand2);
-    displayOptions(answer2);
-
-    let result1 = document.getElementById('option1');
-    result1.addEventListener('click', function () {
-        sAnswer = result1.textContent;
-        if (sAnswer == answer2) {
-            alert('right');
+    while (flag_mul) {
+        if (sAnswer == answer_mul) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_mul = 0;
         } else {
-            alert('wrong!');
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_mul = 0;
         }
-    });
-    let result2 = document.getElementById('option2');
-    result2.addEventListener('click', function () {
-        sAnswer = result2.textContent;
-        if (sAnswer == answer2) {
-            alert('right');
+    }
+    while (flag_div) {
+        if (sAnswer == answer_div) {
+            correct_value = scorecorrect(parseInt(c_score.textContent));
+            c_score.textContent = correct_value;
+            flag_div = 0;
         } else {
-            alert('wrong!');
+            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            ic_score.textContent = incorrect_value;
+            flag_div = 0;
         }
-    });
-
-    let result3 = document.getElementById('option3');
-    result3.addEventListener('click', function () {
-        sAnswer = result3.textContent;
-        if (sAnswer == answer2) {
-            alert('right');
-        } else {
-            result3.style.backgroundColor = 'red';
-        }
-    });
-
-    let result4 = document.getElementById('option4');
-    result4.addEventListener('click', function () {
-        sAnswer = result4.textContent;
-        if (sAnswer == answer2) {
-            alert('right');
-        } else {
-            alert('wrong!');
-        }
-    });
-
-
-});
-
-/**
- * Division game loop, creates two random number 
- * with 4 random options to choose from 
- */
-
-button4.addEventListener('click', function () {
-    let operand1 = Math.floor(Math.random() * 10) + 1;
-    let operand2 = Math.floor(Math.random() * 10) + 1;
-    answer3 = operand1 / operand2;
-
-    displaydivide(operand1, operand2);
-    displayOptions(answer3);
-
-    let result1 = document.getElementById('option1');
-    result1.addEventListener('click', function () {
-        sAnswer = result1.textContent;
-        if (sAnswer == answer3) {
-            alert('right');
-        } else {
-            alert('wrong!');
-        }
-    });
-    let result2 = document.getElementById('option2');
-    result2.addEventListener('click', function () {
-        sAnswer = result2.textContent;
-        if (sAnswer == answer3) {
-            alert('right');
-        } else {
-            alert('wrong!');
-        }
-    });
-
-    let result3 = document.getElementById('option3');
-    result3.addEventListener('click', function () {
-        sAnswer = result3.textContent;
-        if (sAnswer == answer3) {
-            alert('right');
-        } else {
-            result3.style.backgroundColor = 'red';
-        }
-    });
-
-    let result4 = document.getElementById('option4');
-    result4.addEventListener('click', function () {
-        sAnswer = result4.textContent;
-        if (sAnswer == answer3) {
-            alert('right');
-        } else {
-            alert('wrong!');
-        }
-    });
-
+    }
 
 });
 /**
- * Function to display game type 
- * after the user has selected 
+ * Display game questioy by creating two random numbers each 
+ * time according to the categories selected by the user
  */
-
-function scorecorrect(a) {
-    score = a + 1;
-    return score;
-}
-function scoreincorrect(a) {
-    score = a + 1;
-    return score;
-}
-
 
 function displayadd(a, b) {
     document.getElementById('num1').textContent = a;
@@ -290,8 +304,8 @@ function displaymultiply(a, b) {
 }
 
 function displaydivide(a, b) {
-    document.getElementById('num1').textContent = a;
-    document.getElementById('num2').textContent = b;
+    document.getElementById('num1').textContent = a > b ? a : b;
+    document.getElementById('num2').textContent = a > b ? b : a;
     document.getElementById('operand').textContent = '/';
 }
 
