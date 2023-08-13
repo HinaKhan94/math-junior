@@ -102,6 +102,7 @@ body {
     background-color: aqua;
 
 }
+
 .game-question {
     display: flex;
     justify-content: center;
@@ -109,7 +110,7 @@ body {
     position: relative;
     letter-spacing: 38px;
     text-align: center;
-   
+
 }
 
 #num1 {
@@ -127,14 +128,14 @@ body {
 .question-mark {
     color: palevioletred;
     font-weight: 600;
-    font-size: 90px;  
+    font-size: 90px;
 }
 
 .game-operators {
     color: black;
     font-weight: 600;
     font-size: 90px;
-   
+
 }
 
 /* options-area section */
@@ -149,12 +150,12 @@ body {
     border-radius: 50%;
     background-color: white;
     border: 5px solid;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     font-size: 50px;
     text-align: center;
     font-family: luckiest guy, sans-serif;
-    margin 0 30px;
+    margin: 0 30px;
 }
 
 .optionbtn:focus,
@@ -162,7 +163,7 @@ body {
     background-color: green;
     color: white;
     cursor: pointer;
-    
+
 }
 
 /* Scores section */
@@ -174,17 +175,18 @@ body {
 .scores {
     font-size: 25px;
     display: inline-block;
-    padding: 25px;
+    padding: 18px;
     border: 2px solid
 }
 
 .score-area span {
     color: red;
 }
+
 /* Media Queries */
 /* media queries with max-width 720px) */
 
-@media  screen and  (max-width: 720px) {
+@media screen and (max-width: 720px) {
     .wrapper {
         height: 89vh;
     }
@@ -193,11 +195,11 @@ body {
         font-size: 17px;
     }
 }
-    
+
 
 /* media queries with max-width 465 */
 
-@media screen and  (max-width: 465px) {
+@media screen and (max-width: 465px) {
     .title {
         font-size: 178%;
     }
@@ -209,39 +211,41 @@ body {
     .btn {
         font-size: 17px;
         width: 170px;
-     }
-    
-     .game-operators {
+    }
+
+    .game-operators {
         font-size: 50px;
-     }
+    }
 
-     #num1, #num2 {
+    #num1,
+    #num2 {
         font-size: 55px;
-     }
+    }
 
-     .question-mark {
+    .question-mark {
         font-size: 55px;
-     }
+    }
 
-     .game-question {
+    .game-question {
         letter-spacing: 23px;
-     }
-     .optionbtn {
+    }
+
+    .optionbtn {
         height: 108px;
         width: 108px;
-     }
+    }
 
-     .score-area {
+    .score-area {
         padding-top: 18px;
-     }
+    }
 
-     .scores {
-      font-size: 12px;
-     }
+    .scores {
+        font-size: 12px;
+    }
 }
-    
 
-@media  screen and (max-width: 390px) {
+
+@media screen and (max-width: 390px) {
 
     .title {
         font-size: 154%;
@@ -252,7 +256,8 @@ body {
         padding-right: 10px;
         padding-left: 15px;
     }
-/*
+
+    /*
      .btn {
         font-size: 17px;
         width: 170px;
@@ -292,4 +297,4 @@ body {
      }
 */
 
-} 
+}

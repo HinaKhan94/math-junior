@@ -179,6 +179,7 @@ result1.addEventListener('click', function () {
  * and then compares it with the correct answer depending on which game type is running (+,-,x,/)
  * through while loops
  */
+
 result2.addEventListener('click', function () {
     sAnswer = result2.textContent;
     while (flag_add) {
