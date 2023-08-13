@@ -150,12 +150,12 @@ body {
     border-radius: 50%;
     background-color: white;
     border: 5px solid;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     font-size: 50px;
     text-align: center;
     font-family: luckiest guy, sans-serif;
-    margin: 0 30px;
+
 }
 
 .optionbtn:focus,
@@ -233,6 +233,7 @@ body {
     .optionbtn {
         height: 108px;
         width: 108px;
+        font-size: 37px;
     }
 
     .score-area {
