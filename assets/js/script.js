@@ -1,7 +1,7 @@
 
 var correct_score = 0;
 var incorrect_score = 0;
-var flag_add = 1;
+var flag_add = 0;
 var flag_sub = 0;
 var flag_mul = 0;
 var flag_div = 0;

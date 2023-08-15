@@ -246,11 +246,15 @@ body {
     }
 
     .score-area {
-        padding-top: 18px;
+        padding-top: 12px;
     }
 
     .scores {
         font-size: 12px;
+    }
+
+    .resetbtn {
+        font-size: 13px;
     }
 }
 
@@ -266,6 +270,7 @@ body {
         padding-right: 10px;
         padding-left: 15px;
     }
+
 
     /*
      .btn {
