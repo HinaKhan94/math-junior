@@ -395,3 +395,11 @@ function displayOptions(c) {
 
 }
 
+// Add a click event listener to the reset button
+/** 
+let reset = document.getElementById('resetbtn');
+reset.addEventListener('click', function () {
+    // Reset the scores of scorecorrect and scoreincorrect functions
+    scorecorrect = 0;
+    scoreincorrect = 0;
+}); */
