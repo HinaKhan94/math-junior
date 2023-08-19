@@ -12,6 +12,32 @@ body {
 
 }
 
+.container {
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+
+.playButton {
+    background-color: #E6ECF0;
+    box-sizing: border-box;
+    width: 85%;
+    height: 65vh;
+    max-height: 450px;
+    max-width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+
+}
+
+.gameBtn {
+    display: block;
+}
+
+
+
+
+
 /* Title and the functions-bar */
 
 .header {

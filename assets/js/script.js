@@ -384,13 +384,13 @@ function displayOptions(c) {
     let option2 = Math.floor(Math.random() * 100) + 1;
     let option3 = Math.floor(Math.random() * 100) + 1;
 
-    let normal = [option1, option2, option3, c];
+    let normal = [option1, option2, option3, c]; // list of options before shuffling
     let shuffled = [];
 
     for (i = normal.length - 1; i >= 0; i--) {
 
-        j = Math.floor(Math.random() * (i + 1));
-        shuffled.push(normal.splice(j, 1)[0]);
+        j = Math.floor(Math.random() * (i + 1)); // random number generator from 0:i
+        shuffled.push(normal.splice(j, 1)[0]); // push randomly selected value from normal into shuffled list
     }
 
     document.getElementById('option1').textContent = shuffled[0];
