@@ -1,6 +1,3 @@
-
-var correct_score = 0;
-var incorrect_score = 0;
 var flag_add = 0;
 var flag_sub = 0;
 var flag_mul = 0;
@@ -21,6 +18,10 @@ let result1 = document.getElementById('option1');
 let result2 = document.getElementById('option2');
 let result3 = document.getElementById('option3');
 let result4 = document.getElementById('option4');
+
+let reset = document.getElementById('resetbtn');
+
+
 
 // Function for incrementing the score
 
@@ -337,6 +338,12 @@ result4.addEventListener('click', function () {
 
 });
 
+reset.addEventListener('click', function () {
+    // Reset the scores of scorecorrect and scoreincorrect functions
+    c_score.textContent = 0;
+    ic_score.textContent = 0;
+});
+
 /**
  * Display game questioy by creating two random numbers each 
  * time according to the categories selected by the user
@@ -395,11 +402,4 @@ function displayOptions(c) {
 
 }
 
-// Add a click event listener to the reset button
-/** 
-let reset = document.getElementById('resetbtn');
-reset.addEventListener('click', function () {
-    // Reset the scores of scorecorrect and scoreincorrect functions
-    scorecorrect = 0;
-    scoreincorrect = 0;
-}); */
+
