@@ -22,6 +22,7 @@ let result3 = document.getElementById('option3');
 let result4 = document.getElementById('option4');
 
 let reset = document.getElementById('resetbtn');
+let endGame = document.getElementById('endbtn');
 
 
 
@@ -345,6 +346,16 @@ reset.addEventListener('click', function () {
     c_score.textContent = 0;
     ic_score.textContent = 0;
 });
+
+/*
+endGame.addEventListener('click', function () {
+    // End the game with an alert showing the final score and a welldone message
+    c_score.textContent = 0;
+    ic_score.textContent = 0;
+    alert('Thank you for playing! See you next time.');
+});
+
+*/
 
 /**
  * Display game questioy by creating two random numbers each 
