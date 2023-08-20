@@ -1,11 +1,13 @@
-var flag_add = 0;
-var flag_sub = 0;
-var flag_mul = 0;
-var flag_div = 0;
-var answer_add = 0;
-var answer_sub = 0;
-var answer_mul = 0;
-var answer_div = 0;
+
+
+let flag_add = 0;
+let flag_sub = 0;
+let flag_mul = 0;
+let flag_div = 0;
+let answer_add = 0;
+let answer_sub = 0;
+let answer_mul = 0;
+let answer_div = 0;
 let c_score = document.getElementById('correct');
 let ic_score = document.getElementById('incorrect');
 

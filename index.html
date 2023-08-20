@@ -3,45 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Math Junior</title>
   </head>
   <body>
-    <header>
-      <div class="header">
-        <a href="index copy.html"
-          ><h1 class="title">Math Junior <i class="fa-solid fa-rocket"></i></h1
-        ></a>
-        <div class="functions-bar">
-          <button id="addition" class="btn btn-green">Add</button>
-          <button id="subtract" class="btn btn-orange">Subtract</button>
-          <button id="multiply" class="btn btn-purple">Multiply</button>
-          <button id="divide" class="btn btn-red">Divide</button>
+    <div class="container">
+      <a href="index.html"><h1 class="title text-center title-media">
+        Math Junior <i class="fa-solid fa-rocket"></i></a>
+      </h1>
+    </div>
+    <div class="text-capitalize playButton">
+      <!--landing page will disappear when play button is clicked-->
+      <div class="gameBtn">
+        <a href="game.html"
+          ><button type="button" class="btn btn-warning">Play Now!</button></a
+        >
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#modal"
+        >
+          Instructions!
+        </button>
+      </div>
+      <!-- modal -->
+      <div
+        class="modal fade"
+        id="modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="instructionsModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modalLabel">
+                Game Instructions
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <ol>
+                <li>Press play to start the game.</li>
+                <li>
+                  You can play the game with the deafult category chose i.e:
+                  Addition or you have the option to choose from the other
+                  categories(Subtraction, Multiply and Divide).
+                </li>
+                <li>
+                  Once you start the game, you will be given an airthmetic
+                  equation to solve with four different options to choose the
+                  correct answer from.
+                </li>
+                <li>Select the right answer from the displayed options.</li>
+                <li>
+                  On choosing the right answer, you will be given a score of 1
+                  as your correct answer.
+                </li>
+                <li>
+                  On choosing the wrong answer, you will be given a score of 1
+                  as your incorrect answer.
+                </li>
+                <li>
+                  The aim of the game is to test your math knowledge and get as
+                  many correct as you want.
+                </li>
+                <li>
+                  There is no time limit, you can end or reset the game whenever
+                  you want.
+                </li>
+                <li>Enjoy and Best of Luck! :)</li>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Understood
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
-    <div class="wrapper">
-      <div class="game-question">
-        <h1 id="num1">1</h1>
-        <h1 class="game-operators" id="operand">+</h1>
-        <h1 id="num2">2</h1>
-        <h1 class="game-operators">=</h1>
-        <h1 id="answer" class="question-mark">?</h1>
-      </div>
-      <div class="options-area">
-        <button id="option1" class="optionbtn btn-big">1</button>
-        <button id="option2" class="optionbtn btn-big">2</button>
-        <button id="option3" class="optionbtn btn-big">3</button>
-        <button id="option4" class="optionbtn btn-big">4</button>
-      </div>
-      <div class="score-area">
-        <p class="scores">Correct Answers <span id="correct">0</span></p>
-        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
-        <br />
-        <button id="resetbtn">Reset</button>
       </div>
     </div>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/js/script.js"></script>
     <script
       src="https://kit.fontawesome.com/e2a515cee8.js"
