@@ -1,4 +1,21 @@
+const startButton = document.getElementById('start-btn');
+const startButtonContainer = document.getElementById('startBtnContainer');
+const gameCategories = document.getElementById('function-bar');
+const startButtonDiv = document.getElementById('btn-wrapper');
+const gamePlayArea = document.getElementById('wrapper');
+const answerOptions = document.getElementById('answer-options');
+const scoreArea = document.getElementById('scores');
 
+startButton.addEventListener('click', function () {
+    startButton.classList.add('hide');
+    startBtnContainer.classList.add('hide');
+    startButtonDiv.classList.add('hide');
+    gameCategories.classList.remove('hide');
+    gamePlayArea.classList.remove('hide');
+    answerOptions.classList.remove('hide');
+    scoreArea.classList.remove('hide');
+
+});
 
 let flag_add = 0;
 let flag_sub = 0;
@@ -136,9 +153,12 @@ result1.addEventListener('click', function () {
             flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
+            result1.style.backgroundColor = 'red';
             ic_score.textContent = incorrect_value;
             flag_add = 0;
+
         }
+
     }
     //while loop will execute only once and when the game type subtraction is selected
     while (flag_sub) {
@@ -410,8 +430,6 @@ function displayOptions(c) {
     document.getElementById('option2').textContent = shuffled[1];
     document.getElementById('option3').textContent = shuffled[2];
     document.getElementById('option4').textContent = shuffled[3];
-
-
 
 }
 

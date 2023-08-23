@@ -54,6 +54,7 @@ body {
     padding: 20px, 10px;
     overflow: hidden;
     width: 100%;
+    padding-top: 40px;
 
 }
 
@@ -103,7 +104,7 @@ body {
 }
 
 .btn-orange {
-    border-color: orange;
+    border-color: black;
     color: orange;
 }
 
@@ -139,7 +140,7 @@ body {
 
 .wrapper {
     width: 85%;
-    height: 71vh;
+    height: 100vh;
     margin-left: auto;
     margin-right: auto;
     max-width: 642px;
@@ -156,6 +157,7 @@ body {
     position: relative;
     letter-spacing: 38px;
     text-align: center;
+    padding-top: 50px;
 
 }
 
@@ -204,18 +206,20 @@ body {
 
 }
 
+/*
 .optionbtn:focus,
 .optionbtn:hover {
-    background-color: green;
-    color: white;
-    cursor: pointer;
+    /* background-color: green;*/
+/*color: white;
+cursor: pointer;
 
-}
+}  
 
 /* Scores section */
 
 .score-area {
     text-align: center;
+    padding-top: 50px;
 }
 
 .scores {
@@ -255,8 +259,12 @@ body {
     cursor: pointer;
 }
 
+.hide {
+    display: none;
+}
+
 /* Media Queries */
-/* media queries with max-width 720px) */
+/* media queries with max-width 720px) 
 
 @media screen and (max-width: 720px) {
     .wrapper {
@@ -281,8 +289,9 @@ body {
     }
 
     .wrapper {
-        height: 79vh;
+        height: 74vh;
     }
+
 
     .btn {
         font-size: 17px;
@@ -295,11 +304,11 @@ body {
 
     #num1,
     #num2 {
-        font-size: 55px;
+        font-size: 50px;
     }
 
     .question-mark {
-        font-size: 55px;
+        font-size: 45px;
     }
 
     .game-question {
@@ -330,10 +339,10 @@ body {
 
 }
 
-
+/*
 @media screen and (max-width: 390px) {
 
-    .title {
+    /*.title {
         font-size: 154%;
     }
 
@@ -382,6 +391,7 @@ body {
      .scores {
       font-size: 12px;
      }
-*/
+
 
 }
+*/
