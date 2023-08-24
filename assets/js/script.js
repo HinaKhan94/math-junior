@@ -10,7 +10,7 @@ const scoreArea = document.getElementById('scores');
 startButton.addEventListener('click', startGame);
 
 
-let flag_add = 0;
+let flag_add = 1;
 let flag_sub = 0;
 let flag_mul = 0;
 let flag_div = 0;
@@ -59,9 +59,12 @@ button1.addEventListener('click', function () {
     flag_sub = 0;
     flag_mul = 0;
     flag_div = 0;
-    let operand1 = Math.floor(Math.random() * 10) + 1;
-    let operand2 = Math.floor(Math.random() * 10) + 1;
+    flag_sameGame= 0;
+    //let operand1 = Math.floor(Math.random() * 10) + 1;
+    //let operand2 = Math.floor(Math.random() * 10) + 1;
+    [operand1, operand2]=generateEq()
     answer_add = operand1 + operand2;
+    
     displayadd(operand1, operand2);
     displayOptions(answer_add);
 
@@ -78,8 +81,10 @@ button2.addEventListener('click', function () {
     flag_sub = 1;
     flag_mul = 0;
     flag_div = 0;
-    let operand1 = Math.floor(Math.random() * 10) + 1;
-    let operand2 = Math.floor(Math.random() * 10) + 1;
+    //let operand1 = Math.floor(Math.random() * 10) + 1;
+    //let operand2 = Math.floor(Math.random() * 10) + 1;
+
+    [operand1, operand2]=generateEq()
 
     if (operand1 > operand2) {
         answer_sub = operand1 - operand2;
@@ -100,8 +105,10 @@ button3.addEventListener('click', function () {
     flag_sub = 0;
     flag_mul = 1;
     flag_div = 0;
-    let operand1 = Math.floor(Math.random() * 10) + 1;
-    let operand2 = Math.floor(Math.random() * 10) + 1;
+    //let operand1 = Math.floor(Math.random() * 10) + 1;
+    //let operand2 = Math.floor(Math.random() * 10) + 1;
+    [operand1, operand2]=generateEq()
+
     answer_mul = operand1 * operand2;
 
     displaymultiply(operand1, operand2);
@@ -118,8 +125,9 @@ button4.addEventListener('click', function () {
     flag_sub = 0;
     flag_mul = 0;
     flag_div = 1;
-    let operand1 = Math.floor(Math.random() * 25) + 1;
-    let operand2 = Math.floor(Math.random() * 25) + 1;
+    //let operand1 = Math.floor(Math.random() * 25) + 1;
+    //let operand2 = Math.floor(Math.random() * 25) + 1;
+    [operand1, operand2]=generateEq()
 
     while (operand1 % operand2) {
         operand1 = Math.floor(Math.random() * 25) + 1;
@@ -140,54 +148,44 @@ button4.addEventListener('click', function () {
 result1.addEventListener('click', function () {
     sAnswer = result1.textContent;
     //while loop will execute only once and when addition game type addition is selected
-    while (flag_add) {
+    if (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_add = 0;
-
         }
+        repeatEqAdd();
+        
 
-    }
-    //while loop will execute only once and when the game type subtraction is selected
-    while (flag_sub) {
+    } else if (flag_sub){
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_sub = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_sub = 0;
         }
-    }
-    //while loop will execute only once and when the game type multiplication is selected
-    while (flag_mul) {
+        repeatEqSub();
+    } else if (flag_mul) {
         if (sAnswer == answer_mul) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_mul = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_mul = 0;
         }
-    }
-    //while loop will execute only once and when the game type division is selected
-    while (flag_div) {
+        repeatEqMul();
+    } else if (flag_div) {
         if (sAnswer == answer_div) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_div = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_div = 0;
         }
+        repeatEqDiv()
     }
 });
 
@@ -199,49 +197,43 @@ result1.addEventListener('click', function () {
 
 result2.addEventListener('click', function () {
     sAnswer = result2.textContent;
-    while (flag_add) {
+    if (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            flag_add = 0;
+            ic_score.textContent = incorrect_value;       
         }
-    }
-    while (flag_sub) {
+        repeatEqAdd();
+
+    }else if(flag_sub) {
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_sub = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_sub = 0;
         }
-    }
-    while (flag_mul) {
+        repeatEqSub();
+    } else if (flag_mul) {
         if (sAnswer == answer_mul) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_mul = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_mul = 0;
         }
-    }
-    while (flag_div) {
+        repeatEqMul();
+    } else if (flag_div) {
         if (sAnswer == answer_div) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_div = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_div = 0;
         }
+        repeatEqDiv();
     }
 });
 
@@ -253,49 +245,43 @@ result2.addEventListener('click', function () {
 
 result3.addEventListener('click', function () {
     sAnswer = result3.textContent;
-    while (flag_add) {
+    if (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_add = 0;
         }
-    }
-    while (flag_sub) {
+        repeatEqAdd();
+
+    }else if (flag_sub) {
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_sub = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_sub = 0;
         }
-    }
-    while (flag_mul) {
+        repeatEqSub();
+    } else if (flag_mul) {
         if (sAnswer == answer_mul) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_mul = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_mul = 0;
         }
-    }
-    while (flag_div) {
+        repeatEqMul();
+    } else if (flag_div) {
         if (sAnswer == answer_div) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_div = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_div = 0;
         }
+        repeatEqDiv();
     }
 });
 
@@ -307,49 +293,51 @@ result3.addEventListener('click', function () {
 
 result4.addEventListener('click', function () {
     sAnswer = result4.textContent;
-    while (flag_add) {
+    if (flag_add) {
         if (sAnswer == answer_add) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_add = 0;
+            
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_add = 0;
+            
         }
-    }
-    while (flag_sub) {
+        repeatEqAdd();
+
+    } else if (flag_sub) {
         if (sAnswer == answer_sub) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_sub = 0;
+
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_sub = 0;
+            
         }
-    }
-    while (flag_mul) {
+        repeatEqSub();
+    } else if (flag_mul) {
         if (sAnswer == answer_mul) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_mul = 0;
+           
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_mul = 0;
+            
         }
-    }
-    while (flag_div) {
+        repeatEqMul();
+    } else if (flag_div) {
         if (sAnswer == answer_div) {
             correct_value = scorecorrect(parseInt(c_score.textContent));
             c_score.textContent = correct_value;
-            flag_div = 0;
+            
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
-            flag_div = 0;
+        
         }
+        repeatEqDiv();
     }
 
 });
@@ -367,6 +355,12 @@ function startGame() {
     gamePlayArea.classList.remove('hide');
     answerOptions.classList.remove('hide');
     scoreArea.classList.remove('hide');
+    [operand1,operand2]=generateEq()
+    displayadd(operand1,operand2)
+    answer_add= operand1+operand2;
+    displayOptions(answer_add)
+    flag_add=1;
+
 }
 
 
@@ -397,6 +391,51 @@ function endGame() {
  * Display game questioy by creating two random numbers each 
  * time according to the categories selected by the user
  */
+
+function generateEq(){
+    let operand1 = Math.floor(Math.random() * 25) + 1;
+    let operand2 = Math.floor(Math.random() * 25) + 1;
+    return [operand1, operand2]
+      
+}
+
+function repeatEqAdd(){
+        [operand1, operand2]=generateEq()
+        answer_add = operand1 + operand2;
+        displayadd(operand1, operand2);
+        displayOptions(answer_add);
+}
+
+function repeatEqSub(){
+    [operand1, operand2]=generateEq()
+    if (operand1 > operand2) {
+        answer_sub = operand1 - operand2;
+    } else {
+        answer_sub = operand2 - operand1;
+    }
+    displaysubtract(operand1, operand2);
+    displayOptions(answer_sub);
+}
+
+function repeatEqMul(){
+    [operand1, operand2]=generateEq()
+    answer_mul = operand1 * operand2;
+    displaymultiply(operand1, operand2);
+    displayOptions(answer_mul);
+}
+
+function repeatEqDiv(){
+    [operand1, operand2]=generateEq()
+    while (operand1 % operand2) {
+        operand1 = Math.floor(Math.random() * 25) + 1;
+        operand2 = Math.floor(Math.random() * 25) + 1;
+    }
+    answer_div = operand1 / operand2;
+    displaydivide(operand1, operand2);
+    displayOptions(answer_div);
+}
+
+
 
 function displayadd(a, b) {
     document.getElementById('num1').textContent = a;
