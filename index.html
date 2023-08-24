@@ -6,7 +6,7 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-    />
+      />
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Math Junior</title>
   </head>
@@ -14,8 +14,10 @@
     <header>
       <div class="header">
         <a href="index.html"
-          ><h1 class="title">Math Junior <i class="fa-solid fa-rocket"></i></h1
-        ></a>
+          >
+          <h1 class="title">Math Junior <i class="fa-solid fa-rocket"></i></h1
+            >
+        </a>
         <div id="function-bar" class="functions-bar hide">
           <button id="addition" class="btn btn-green">Add</button>
           <button id="subtract" class="btn btn-orange">Subtract</button>
@@ -26,9 +28,9 @@
     </header>
     <div id="btn-wrapper" class="text-capitalize playButton">
       <!--landing page will disappear when play button is clicked-->
-      <div id="startBtnContainer" class="gameBtn">
+      <div class="gameBtn">
         <button id="start-btn" type="button" class="btn btn-warning">
-          Play Now!
+        Play Now!
         </button>
         <br />
         <button
@@ -36,8 +38,8 @@
           class="btn btn-danger"
           data-bs-toggle="modal"
           data-bs-target="#modal"
-        >
-          Instructions!
+          >
+        Instructions!
         </button>
       </div>
       <!-- modal -->
@@ -49,7 +51,7 @@
         tabindex="-1"
         aria-labelledby="instructionsModal"
         aria-hidden="true"
-      >
+        >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -61,7 +63,7 @@
                 class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              ></button>
+                ></button>
             </div>
             <div class="modal-body">
               <ol>
@@ -101,8 +103,8 @@
                 type="button"
                 class="btn btn-danger"
                 data-bs-dismiss="modal"
-              >
-                Understood
+                >
+              Understood
               </button>
             </div>
           </div>
@@ -128,25 +130,23 @@
         <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
         <br />
         <button id="resetbtn">Reset</button>
-        <a href="index.html">
-          <button
-            id="endbtn"
-            onclick="alert('Welldone! You scored a total of 40 points.\nDo you want to play again?')"
+        <button
+          id="endbtn"
+          onclick="alert('Welldone! You scored a total of 40 points.\nDo you want to play again?')"
           >
-            End Game
-          </button></a
-        >
+        End Game
+        </button>
       </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
-    ></script>
+      ></script>
     <script src="assets/js/script.js"></script>
     <script
       src="https://kit.fontawesome.com/e2a515cee8.js"
       crossorigin="anonymous"
-    ></script>
+      ></script>
   </body>
 </html>

@@ -1,39 +1,136 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Math Junior
 
-Welcome,
+![Mockup responsive image](assets/images/)
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **July 26th, 2023**
+**Math Junior** is a quiz where the user can test his math knowledge. The quiz is targeted to kids who are learning basic mathematical expressions(addition, subtraction, multiplication and division). Math junior is a fully responsive JavaScript quiz game that will allow users to test their knowledge of math by selecting through 4 categories.
 
-## Codeanywhere Reminders
+## Features
+### *Existing Features*
+**Landing page with Title, Start Button and Instructions Button**
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+Title is at the top middle of the page. When the page loads, the user is able to see the name of the quiz with two buttons (Start button and Instructions button).
 
-`python3 -m http.server`
+![Title and buttons](assets/images/)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+### **The PlayGame Button**
 
-`http_server`
+This button allows the user to start the game. The section is hidden once the user clicks on the play button and the game area appears that allows the user to play with answering questions. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Start image](assets/images/)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### **The Instructions Button**
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The instruction button when clicked opens up a modal which gives all the instructions related to the game play and it closes when the user clicks on the understood button or the cross at the top-right corner of the modal. It takes the user back to the landing page to start the game by clicking the play button.
 
-To log into the Heroku toolbelt CLI:
+### **The Game Page**
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+The game page has a header that features the title and 4 different categories. In this section the user can select the category that they find best and play the questions accordingly. By default, addition question is displayed but it can be changed as per user's wish. The game page also displays the following:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Game area with question.
+- Options to choose from. 
+- Scoring area.  
+- Buttons to end or reset the game.
 
----
+![Game page image](assets/images/)
 
-Happy coding!
+### **End Game**
+
+In order to end the game, the user can simply click on the end game button and a popup will show the users' final score and a button when clicked will take the user back to the landing page with a play button and instructions button.
+
+![End button alert](assets/images/)
+
+
+## Game Design
+### Main Color Palette
+
+![Color Scheme](assets/images/)
+
+I have used solid colors to make my game attractive to kids.
+- Blue #02afd0 
+- Yellow #ffff00, 
+- White #fff 
+- Gray #3a3a3a
+
+
+### Typography
+Google Font is used as the main font of the game. For the icon, I have used font awesome.
+
+- luckiest guy font is used with a fallback font of sans-serif.
+- Icon: rocket(fa fa-)
+
+
+### Skeleton 
+The game is a simple one page structure.
+
+The initial sketch was made using Balsamic Wireframes. It was discussed and motified with the guidance of my mentor.
+You can view the draft [here](assets/readme.docs/)
+
+
+## Technologies Used
+### Languages Used
+HTML, CSS and JavaScript.
+
+### Frameworks, Libraries & Programs Used
+- Balsamiq - Used to create wireframes.
+- Github - To save and store the files. 
+- Google Fonts - To import the fonts used in the game.
+- Font Awesome - For the icon.
+- Google Dev Tools - To troubleshoot and test features, solve issues with responsiveness and styling.
+
+## Testing
+
+Testing was continuous throughout construction. I used Chrome developer console during the construct to identify and fix any issues along the way.
+
+The following issues were raised during the meeting with my mentor:
+
+
+### Validator Testing
+- HTML 
+  * No errors were found when passing through the recommended [W3C Validator]()
+- CSS
+  * No errors were found when passing through the recommended [Jigsaw Validator]()
+
+- JavaScript
+  * No errors were found when passing through the official Jshint validator
+    - The following metrics were returned:
+       
+
+## Accessibility
+
+I have made sure that I have used complimentary color contrasts throughout the game and made sure to use semantic HTML for accessibility. 
+
+### Lighthouse Testing
+- Desktop View
+![Image of lighhouse desktop performance](assets/readme.docs/Readme.Images/)
+
+- Mobile View 
+![Image of lighthouse mobile performance](assets/readme.docs/Readme.Images/)
+
+### Browser Testing
+- Chrome
+- Safari
+- Mozilla Firefox
+
+## Unfixed Bugs
+No unfixed Bugs.
+
+## Deployment
+
+- The site was deployed to Github pages, the process of deployment that I followed is as below:
+  * In the Github repositiory section, went to the settings tab
+  * From the source section drop-down menu, chose the Master Branch
+  * Once the master branch was selected, the page automatically refreshed and displayed a successfull deployment
+
+The link can be viewed [here]() 
+
+## Credits
+
+I would like to thanks my mentor Oluwafemi Medale for his constant support and guidance through out the completion of the project.
+
+### Content
+- The icon was taken from [Font Awesome](https://fontawesome.com/).
+- The instructions to how to add modal to the instructions button was taken from [Bootstrap5](ht) and [YouTube Channel](https:).
+- The responsive mockup was generated with [Website Mockup Generator](https://websitemockupgenerator.com/)
+

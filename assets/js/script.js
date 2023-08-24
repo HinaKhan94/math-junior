@@ -1,21 +1,14 @@
 const startButton = document.getElementById('start-btn');
-const startButtonContainer = document.getElementById('startBtnContainer');
+const endGameBtn = document.getElementById('endbtn');
 const gameCategories = document.getElementById('function-bar');
 const startButtonDiv = document.getElementById('btn-wrapper');
 const gamePlayArea = document.getElementById('wrapper');
 const answerOptions = document.getElementById('answer-options');
 const scoreArea = document.getElementById('scores');
 
-startButton.addEventListener('click', function () {
-    startButton.classList.add('hide');
-    startBtnContainer.classList.add('hide');
-    startButtonDiv.classList.add('hide');
-    gameCategories.classList.remove('hide');
-    gamePlayArea.classList.remove('hide');
-    answerOptions.classList.remove('hide');
-    scoreArea.classList.remove('hide');
 
-});
+startButton.addEventListener('click', startGame);
+
 
 let flag_add = 0;
 let flag_sub = 0;
@@ -73,6 +66,7 @@ button1.addEventListener('click', function () {
     displayOptions(answer_add);
 
 });
+
 
 /**
  * game type: Subtraction
@@ -153,7 +147,6 @@ result1.addEventListener('click', function () {
             flag_add = 0;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            result1.style.backgroundColor = 'red';
             ic_score.textContent = incorrect_value;
             flag_add = 0;
 
@@ -361,21 +354,44 @@ result4.addEventListener('click', function () {
 
 });
 
+/**
+ * startGame functions that hides the start button and the 
+ * instructions button and shows the game related elements only
+ */
+
+function startGame() {
+     // Perform actions to start the game
+    startButton.classList.add('hide');
+    startButtonDiv.classList.add('hide');
+    gameCategories.classList.remove('hide');
+    gamePlayArea.classList.remove('hide');
+    answerOptions.classList.remove('hide');
+    scoreArea.classList.remove('hide');
+}
+
+
 reset.addEventListener('click', function () {
     // Reset the scores of scorecorrect and scoreincorrect functions
     c_score.textContent = 0;
     ic_score.textContent = 0;
 });
 
-/*
-endGame.addEventListener('click', function () {
-    // End the game with an alert showing the final score and a welldone message
-    c_score.textContent = 0;
-    ic_score.textContent = 0;
-    alert('Thank you for playing! See you next time.');
-});
-
+/**
+ * endGame function that shows the start button and the 
+ * instructions button again and hides the game related elements 
+ 
+endGameBtn.addEventListener('click', endGame);
+function endGame() {
+    // Perform actions to end the game
+    gameCategories.classList.add('hide');
+    gamePlayArea.classList.add('hide');
+    answerOptions.classList.add('hide');
+    scoreArea.classList.add('hide');
+    startButtonDiv.classList.remove('hide');
+    startButton.classList.remove('hide');
+}
 */
+
 
 /**
  * Display game questioy by creating two random numbers each 
