@@ -155,6 +155,7 @@ result1.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqAdd();
         
@@ -166,6 +167,7 @@ result1.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqSub();
     } else if (flag_mul) {
@@ -175,6 +177,7 @@ result1.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqMul();
     } else if (flag_div) {
@@ -184,6 +187,7 @@ result1.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqDiv()
     }
@@ -203,7 +207,8 @@ result2.addEventListener('click', function () {
             c_score.textContent = correct_value;
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;       
+            ic_score.textContent = incorrect_value;  
+            alert('Oops you got that wrong, better luck next time');     
         }
         repeatEqAdd();
 
@@ -214,6 +219,7 @@ result2.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqSub();
     } else if (flag_mul) {
@@ -223,6 +229,7 @@ result2.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqMul();
     } else if (flag_div) {
@@ -232,6 +239,7 @@ result2.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqDiv();
     }
@@ -252,6 +260,7 @@ result3.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqAdd();
 
@@ -262,6 +271,7 @@ result3.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqSub();
     } else if (flag_mul) {
@@ -271,6 +281,7 @@ result3.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqMul();
     } else if (flag_div) {
@@ -280,6 +291,7 @@ result3.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         }
         repeatEqDiv();
     }
@@ -301,6 +313,7 @@ result4.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
             
         }
         repeatEqAdd();
@@ -313,6 +326,7 @@ result4.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
             
         }
         repeatEqSub();
@@ -324,6 +338,7 @@ result4.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
             
         }
         repeatEqMul();
@@ -335,6 +350,7 @@ result4.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
             ic_score.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time');
         
         }
         repeatEqDiv();
@@ -363,6 +379,10 @@ function startGame() {
 
 }
 
+endGameBtn.addEventListener('click', function(){
+    alert(`Well done! You scored a total of ${c_score}.\nSee you next time!`)
+})
+
 
 reset.addEventListener('click', function () {
     // Reset the scores of scorecorrect and scoreincorrect functions
@@ -370,13 +390,14 @@ reset.addEventListener('click', function () {
     ic_score.textContent = 0;
 });
 
-/**
+/*
  * endGame function that shows the start button and the 
  * instructions button again and hides the game related elements 
+ * /
  
 endGameBtn.addEventListener('click', endGame);
 function endGame() {
-    // Perform actions to end the game
+     Perform actions to end the game
     gameCategories.classList.add('hide');
     gamePlayArea.classList.add('hide');
     answerOptions.classList.add('hide');
@@ -384,7 +405,6 @@ function endGame() {
     startButtonDiv.classList.remove('hide');
     startButton.classList.remove('hide');
 }
-*/
 
 
 /**

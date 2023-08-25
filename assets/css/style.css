@@ -8,27 +8,15 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: luckiest guy, sans-serif;
-	background-color: lightgray;
+	background-color: #fafafa;
 
-}
-
-/* Index page Styling */
-
-.container {
-	padding-top: 5%;
-	padding-bottom: 2%;
-}
-
-.container a {
-	text-decoration: none;
-	color: black;
 }
 
 .playButton {
-	background-color: black;
+	background-color: #000000;
 	box-sizing: border-box;
 	width: 85%;
-	height: 65vh;
+	height: 74vh;
 	max-height: 450px;
 	max-width: 830px;
 	margin-left: auto;
@@ -44,11 +32,10 @@ body {
 }
 
 
-/* Game.index Title and the functions-bar */
+/* Game area Title and the functions-bar */
 
 .header {
 	background-color: aqua;
-	padding: 20px, 10px;
 	overflow: hidden;
 	width: 100%;
 	padding-top: 40px;
@@ -58,7 +45,6 @@ body {
 
 .title {
 	font-size: 350%;
-	padding-left: 23px;
 	text-align: center;
 	color: black;
 }
@@ -202,13 +188,12 @@ body {
 	font-family: luckiest guy, sans-serif;
 
 }
-
 /*
 .optionbtn:focus,
 .optionbtn:hover {
-    /* background-color: green;*/
-/*color: white;
-cursor: pointer;
+	background-color: green;
+	color: white;
+	cursor: pointer;
 
 }  
 
@@ -259,20 +244,6 @@ cursor: pointer;
 .hide {
 	display: none;
 }
-
-/* Media Queries */
-/* media queries with max-width 720px) 
-
-@media screen and (max-width: 720px) {
-    .wrapper {
-        height: 89vh;
-    }
-
-    .scores {
-        font-size: 17px;
-    }
-}
-
 
 /* media queries with max-width 465 */
 

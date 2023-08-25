@@ -29,13 +29,13 @@
     <div id="btn-wrapper" class="text-capitalize playButton">
       <!--landing page will disappear when play button is clicked-->
       <div class="gameBtn">
-        <button id="start-btn" type="button" class="btn btn-warning">
+        <button id="start-btn" type="button" class="btn btn-warning btn-modal">
         Play Now!
         </button>
         <br />
         <button
           type="button"
-          class="btn btn-danger"
+          class="btn btn-danger btn-modal"
           data-bs-toggle="modal"
           data-bs-target="#modal"
           >
@@ -130,12 +130,10 @@
         <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
         <br />
         <button id="resetbtn">Reset</button>
-        <button
-          id="endbtn"
-          onclick="alert('Welldone! You scored a total of 40 points.\nDo you want to play again?')"
-          >
+        <a href="index.html"><button
+          id="endbtn">
         End Game
-        </button>
+        </button></a>
       </div>
     </div>
     <script
