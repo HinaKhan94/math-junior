@@ -10,26 +10,26 @@ const scoreArea = document.getElementById('scores');
 startButton.addEventListener('click', startGame);
 
 
-let flag_add = 1;
-let flag_sub = 0;
-let flag_mul = 0;
-let flag_div = 0;
-let answer_add = 0;
-let answer_sub = 0;
-let answer_mul = 0;
-let answer_div = 0;
-let c_score = document.getElementById('correct');
-let ic_score = document.getElementById('incorrect');
+let playAdditionCategory = true;
+let playSubtractionCategory = false;
+let playMultiplyCategory = false;
+let playDivideCategory = false;
+let answerAdd = 0;
+let answerSubtract = 0;
+let answerMultiply = 0;
+let answerDivide = 0;
+let incrementScore = document.getElementById('correct');
+let decrementScore = document.getElementById('incorrect');
 
-let button1 = document.getElementById('addition');
-let button2 = document.getElementById('subtract');
-let button3 = document.getElementById('multiply');
-let button4 = document.getElementById('divide');
+let playAdditionGame = document.getElementById('addition');
+let playSubtractionGame = document.getElementById('subtract');
+let playMultiplicationGame = document.getElementById('multiply');
+let playDivisionGame = document.getElementById('divide');
 
-let result1 = document.getElementById('option1');
-let result2 = document.getElementById('option2');
-let result3 = document.getElementById('option3');
-let result4 = document.getElementById('option4');
+let optionAnswerOne = document.getElementById('option1');
+let optionAnswerTwo = document.getElementById('option2');
+let optionAnswerThree = document.getElementById('option3');
+let optionAnswerFour = document.getElementById('option4');
 
 let reset = document.getElementById('resetbtn');
 let endGame = document.getElementById('endbtn');
@@ -54,19 +54,17 @@ function scoreincorrect(a) {
  * game type: addition
  * will only generate addition game equation when pressed
  */
-button1.addEventListener('click', function () {
-    flag_add = 1;
-    flag_sub = 0;
-    flag_mul = 0;
-    flag_div = 0;
-    flag_sameGame= 0;
-    //let operand1 = Math.floor(Math.random() * 10) + 1;
-    //let operand2 = Math.floor(Math.random() * 10) + 1;
+playAdditionGame.addEventListener('click', function () {
+    playAdditionCategory = true;
+    playSubtractionCategory = false;
+    playMultiplyCategory = false;
+    playDivideCategory = false;
+    flag_sameGame= false;
     [operand1, operand2]=generateEq()
-    answer_add = operand1 + operand2;
+    answerAdd = operand1 + operand2;
     
     displayadd(operand1, operand2);
-    displayOptions(answer_add);
+    displayOptions(answerAdd);
 
 });
 
@@ -76,23 +74,21 @@ button1.addEventListener('click', function () {
  * will only generate subtraction game equation when pressed
  */
 
-button2.addEventListener('click', function () {
-    flag_add = 0;
-    flag_sub = 1;
-    flag_mul = 0;
-    flag_div = 0;
-    //let operand1 = Math.floor(Math.random() * 10) + 1;
-    //let operand2 = Math.floor(Math.random() * 10) + 1;
-
+playSubtractionGame.addEventListener('click', function () {
+    playAdditionCategory = false;
+    playSubtractionCategory = true;
+    playMultiplyCategory = false;
+    playDivideCategory = false;
+    
     [operand1, operand2]=generateEq()
 
     if (operand1 > operand2) {
-        answer_sub = operand1 - operand2;
+        answerSubtract = operand1 - operand2;
     } else {
-        answer_sub = operand2 - operand1;
+        answerSubtract = operand2 - operand1;
     }
     displaysubtract(operand1, operand2);
-    displayOptions(answer_sub);
+    displayOptions(answerSubtract);
 });
 
 /**
@@ -100,19 +96,17 @@ button2.addEventListener('click', function () {
  * will only generate multiplication game equation when pressed
  */
 
-button3.addEventListener('click', function () {
-    flag_add = 0;
-    flag_sub = 0;
-    flag_mul = 1;
-    flag_div = 0;
-    //let operand1 = Math.floor(Math.random() * 10) + 1;
-    //let operand2 = Math.floor(Math.random() * 10) + 1;
+playMultiplicationGame.addEventListener('click', function () {
+    playAdditionCategory = false;
+    playSubtractionCategory = false;
+    playMultiplyCategory = true;
+    playDivideCategory = false;
     [operand1, operand2]=generateEq()
 
-    answer_mul = operand1 * operand2;
+    answerMultiply = operand1 * operand2;
 
     displaymultiply(operand1, operand2);
-    displayOptions(answer_mul);
+    displayOptions(answerMultiply);
 });
 
 /**
@@ -120,240 +114,246 @@ button3.addEventListener('click', function () {
  * will only generate division game equation when pressed
  */
 
-button4.addEventListener('click', function () {
-    flag_add = 0;
-    flag_sub = 0;
-    flag_mul = 0;
-    flag_div = 1;
-    //let operand1 = Math.floor(Math.random() * 25) + 1;
-    //let operand2 = Math.floor(Math.random() * 25) + 1;
+playDivisionGame.addEventListener('click', function () {
+    playAdditionCategory = false;
+    playSubtractionCategory = false;
+    playMultiplyCategory = false;
+    playDivideCategory = true;
+   
     [operand1, operand2]=generateEq()
 
     while (operand1 % operand2) {
         operand1 = Math.floor(Math.random() * 25) + 1;
         operand2 = Math.floor(Math.random() * 25) + 1;
     }
-    answer_div = operand1 / operand2;
+    answerDivide = operand1 / operand2;
     displaydivide(operand1, operand2);
-    displayOptions(answer_div);
+    displayOptions(answerDivide);
 
 });
 
 /**
  * function for generating answer option 1 
  * and then compares it with the correct answer depending on which game type is running (+,-,x,/)
- * through while loops
+ * through if else loops
  */
 
-result1.addEventListener('click', function () {
-    sAnswer = result1.textContent;
-    //while loop will execute only once and when addition game type addition is selected
-    if (flag_add) {
-        if (sAnswer == answer_add) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+optionAnswerOne.addEventListener('click', function () {
+    userSelectedAnswer = optionAnswerOne.textContent;
+    //if loop will execute when addition game type is selected
+    if (playAdditionCategory) {
+        if (userSelectedAnswer == answerAdd) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqAdd();
+        nextAdditionQuestion();
         
+    //else if loop will execute when subtraction game type is selected
 
-    } else if (flag_sub){
-        if (sAnswer == answer_sub) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+    } else if (playSubtractionCategory){
+        if (userSelectedAnswer == answerSubtract) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqSub();
-    } else if (flag_mul) {
-        if (sAnswer == answer_mul) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextSubtractQuestion();
+
+    //else if loop will execute when multiplication game type is selected
+
+    } else if (playMultiplyCategory) {
+        if (userSelectedAnswer == answerMultiply) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqMul();
-    } else if (flag_div) {
-        if (sAnswer == answer_div) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextMultiplyQuestion();
+
+    //else if loop will execute when division game type is selected
+
+    } else if (playDivideCategory) {
+        if (userSelectedAnswer == answerDivide) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqDiv()
+        nextDivisionQuestion()
     }
 });
 
 /**
  * function for generating answer option 2 
  * and then compares it with the correct answer depending on which game type is running (+,-,x,/)
- * through while loops
+ * through if else loops
  */
 
-result2.addEventListener('click', function () {
-    sAnswer = result2.textContent;
-    if (flag_add) {
-        if (sAnswer == answer_add) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+optionAnswerTwo.addEventListener('click', function () {
+    userSelectedAnswer = optionAnswerTwo.textContent;
+    if (playAdditionCategory) {
+        if (userSelectedAnswer == answerAdd) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;  
-            alert('Oops you got that wrong, better luck next time');     
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;  
+            alert('Oops you got that wrong, better luck next time!');     
         }
-        repeatEqAdd();
+        nextAdditionQuestion();
 
-    }else if(flag_sub) {
-        if (sAnswer == answer_sub) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+    }else if(playSubtractionCategory) {
+        if (userSelectedAnswer == answerSubtract) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqSub();
-    } else if (flag_mul) {
-        if (sAnswer == answer_mul) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextSubtractQuestion();
+    } else if (playMultiplyCategory) {
+        if (userSelectedAnswer == answerMultiply) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqMul();
-    } else if (flag_div) {
-        if (sAnswer == answer_div) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextMultiplyQuestion();
+    } else if (playDivideCategory) {
+        if (userSelectedAnswer == answerDivide) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqDiv();
+        nextDivisionQuestion();
     }
 });
 
 /**
  * function for generating answer option 3 
  * and then compares it with the correct answer depending on which game type is running (+,-,x,/)
- * through while loops
+ * through if else loops
  */
 
-result3.addEventListener('click', function () {
-    sAnswer = result3.textContent;
-    if (flag_add) {
-        if (sAnswer == answer_add) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+optionAnswerThree.addEventListener('click', function () {
+    userSelectedAnswer = optionAnswerThree.textContent;
+    if (playAdditionCategory) {
+        if (userSelectedAnswer == answerAdd) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqAdd();
+        nextAdditionQuestion();
 
-    }else if (flag_sub) {
-        if (sAnswer == answer_sub) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+    }else if (playSubtractionCategory) {
+        if (userSelectedAnswer == answerSubtract) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqSub();
-    } else if (flag_mul) {
-        if (sAnswer == answer_mul) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextSubtractQuestion();
+    } else if (playMultiplyCategory) {
+        if (userSelectedAnswer == answerMultiply) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqMul();
-    } else if (flag_div) {
-        if (sAnswer == answer_div) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextMultiplyQuestion();
+    } else if (playDivideCategory) {
+        if (userSelectedAnswer == answerDivide) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         }
-        repeatEqDiv();
+        nextDivisionQuestion();
     }
 });
 
 /**
  * function for generating answer option 4 
  * and then compares it with the correct answer depending on which game type is running (+,-,x,/)
- * through while loops
+ * through if else loops
  */
 
-result4.addEventListener('click', function () {
-    sAnswer = result4.textContent;
-    if (flag_add) {
-        if (sAnswer == answer_add) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+optionAnswerFour.addEventListener('click', function () {
+    userSelectedAnswer = optionAnswerFour.textContent;
+    if (playAdditionCategory) {
+        if (userSelectedAnswer == answerAdd) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
             
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
             
         }
-        repeatEqAdd();
+        nextAdditionQuestion();
 
-    } else if (flag_sub) {
-        if (sAnswer == answer_sub) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+    } else if (playSubtractionCategory) {
+        if (userSelectedAnswer == answerSubtract) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
 
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
             
         }
-        repeatEqSub();
-    } else if (flag_mul) {
-        if (sAnswer == answer_mul) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextSubtractQuestion();
+    } else if (playMultiplyCategory) {
+        if (userSelectedAnswer == answerMultiply) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
            
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
             
         }
-        repeatEqMul();
-    } else if (flag_div) {
-        if (sAnswer == answer_div) {
-            correct_value = scorecorrect(parseInt(c_score.textContent));
-            c_score.textContent = correct_value;
+        nextMultiplyQuestion();
+    } else if (playDivideCategory) {
+        if (userSelectedAnswer == answerDivide) {
+            correct_value = scorecorrect(parseInt(incrementScore.textContent));
+            incrementScore.textContent = correct_value;
             
         } else {
-            incorrect_value = scoreincorrect(parseInt(ic_score.textContent));
-            ic_score.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time');
+            incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
+            decrementScore.textContent = incorrect_value;
+            alert('Oops you got that wrong, better luck next time!');
         
         }
-        repeatEqDiv();
+        nextDivisionQuestion();
     }
 
 });
@@ -373,38 +373,23 @@ function startGame() {
     scoreArea.classList.remove('hide');
     [operand1,operand2]=generateEq()
     displayadd(operand1,operand2)
-    answer_add= operand1+operand2;
-    displayOptions(answer_add)
-    flag_add=1;
+    answerAdd= operand1+operand2;
+    displayOptions(answerAdd)
+    playAdditionCategory=1;
 
 }
 
 endGameBtn.addEventListener('click', function(){
-    alert(`Well done! You scored a total of ${c_score}.\nSee you next time!`)
+    finalScore= parseInt(incrementScore.textContent) - parseInt(decrementScore.textContent)
+    alert(`Well done! You scored a total of ${finalScore}.\nSee you next time!`)
 })
 
 
 reset.addEventListener('click', function () {
     // Reset the scores of scorecorrect and scoreincorrect functions
-    c_score.textContent = 0;
-    ic_score.textContent = 0;
+    incrementScore.textContent = 0;
+    decrementScore.textContent = 0;
 });
-
-/*
- * endGame function that shows the start button and the 
- * instructions button again and hides the game related elements 
- * /
- 
-endGameBtn.addEventListener('click', endGame);
-function endGame() {
-     Perform actions to end the game
-    gameCategories.classList.add('hide');
-    gamePlayArea.classList.add('hide');
-    answerOptions.classList.add('hide');
-    scoreArea.classList.add('hide');
-    startButtonDiv.classList.remove('hide');
-    startButton.classList.remove('hide');
-}
 
 
 /**
@@ -419,68 +404,71 @@ function generateEq(){
       
 }
 
-function repeatEqAdd(){
+function nextAdditionQuestion(){
         [operand1, operand2]=generateEq()
-        answer_add = operand1 + operand2;
+        answerAdd = operand1 + operand2;
         displayadd(operand1, operand2);
-        displayOptions(answer_add);
+        displayOptions(answerAdd);
 }
 
-function repeatEqSub(){
+function nextSubtractQuestion(){
     [operand1, operand2]=generateEq()
     if (operand1 > operand2) {
-        answer_sub = operand1 - operand2;
+        answerSubtract = operand1 - operand2;
     } else {
-        answer_sub = operand2 - operand1;
+        answerSubtract = operand2 - operand1;
     }
     displaysubtract(operand1, operand2);
-    displayOptions(answer_sub);
+    displayOptions(answerSubtract);
 }
 
-function repeatEqMul(){
+function nextMultiplyQuestion(){
     [operand1, operand2]=generateEq()
-    answer_mul = operand1 * operand2;
+    answerMultiply = operand1 * operand2;
     displaymultiply(operand1, operand2);
-    displayOptions(answer_mul);
+    displayOptions(answerMultiply);
 }
 
-function repeatEqDiv(){
+function nextDivisionQuestion(){
     [operand1, operand2]=generateEq()
     while (operand1 % operand2) {
         operand1 = Math.floor(Math.random() * 25) + 1;
         operand2 = Math.floor(Math.random() * 25) + 1;
     }
-    answer_div = operand1 / operand2;
+    answerDivide = operand1 / operand2;
     displaydivide(operand1, operand2);
-    displayOptions(answer_div);
+    displayOptions(answerDivide);
 }
 
 
 
 function displayadd(a, b) {
-    document.getElementById('num1').textContent = a;
-    document.getElementById('num2').textContent = b;
-    document.getElementById('operand').textContent = '+';
+    assignOperationValuesAddMul(a, b, '+')
+   
 }
-
 function displaysubtract(a, b) {
-    document.getElementById('num1').textContent = a > b ? a : b;
-    document.getElementById('num2').textContent = a > b ? b : a;
-    document.getElementById('operand').textContent = '-';
-}
+    assignOperationValuesSubDiv(a,b,'-')
 
+}
 function displaymultiply(a, b) {
-    document.getElementById('num1').textContent = a;
-    document.getElementById('num2').textContent = b;
-    document.getElementById('operand').textContent = 'x';
+    assignOperationValuesAddMul(a, b, 'x')
 }
 
 function displaydivide(a, b) {
-    document.getElementById('num1').textContent = a > b ? a : b;
-    document.getElementById('num2').textContent = a > b ? b : a;
-    document.getElementById('operand').textContent = '/';
+    assignOperationValuesSubDiv(a,b,'/')
 }
 
+function assignOperationValuesAddMul(valueOne, valueTwo, operator){
+    document.getElementById('num1').textContent = valueOne;
+    document.getElementById('num2').textContent = valueTwo;
+    document.getElementById('operand').textContent = operator;
+
+}
+function assignOperationValuesSubDiv(valueOne, valueTwo, operator){
+    document.getElementById('num1').textContent = valueOne > valueTwo ? valueOne : valueTwo;
+    document.getElementById('num2').textContent = valueOne > valueTwo ? valueTwo : valueOne;
+    document.getElementById('operand').textContent = operator;
+}
 /**
  * Display options to choose from by creating 4 random numbers 
  * and shuffling them through splice
