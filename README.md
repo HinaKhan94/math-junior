@@ -5,7 +5,7 @@ The live preview can be viewed [here](https://hinakhan94.github.io/math-junior/)
 ![Mockup responsive image](assets/readme-images/responsive-mockup.png)
 
 
-**Math Junior** is a quiz where the user can test his math knowledge. The quiz is targeted to kids who are learning basic mathematical expressions(addition, subtraction, multiplication and division). Math junior is a fully responsive JavaScript quiz game that will allow users to test their knowledge of math by selecting through 4 categories.
+**Math Junior** is a quiz game made where the user can test his math knowledge. The quiz is targeted to kids who are learning basic mathematical expressions(addition, subtraction, multiplication and division). Math junior is a fully responsive JavaScript quiz game that will allow users to test their knowledge of math by selecting through 4 categories.
 
 ## Features
 ### *Existing Features*
@@ -151,7 +151,7 @@ I have made sure that I have used complimentary color contrasts throughout the g
 - Mozilla Firefox
 
 ## Unfixed Bugs
-No unfixed Bugs.
+- Color of the answer options border appear differently when viewed on Safari browser. It is still in-progress phase.
 
 ## Deployment
 

@@ -148,7 +148,7 @@ optionAnswerOne.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+            
         }
         nextAdditionQuestion();
         
@@ -161,7 +161,7 @@ optionAnswerOne.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         }
         nextSubtractQuestion();
 
@@ -174,7 +174,7 @@ optionAnswerOne.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         }
         nextMultiplyQuestion();
 
@@ -187,7 +187,7 @@ optionAnswerOne.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         }
         nextDivisionQuestion()
     }
@@ -208,7 +208,7 @@ optionAnswerTwo.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;  
-            alert('Oops you got that wrong, better luck next time!');     
+             
         }
         nextAdditionQuestion();
 
@@ -219,7 +219,7 @@ optionAnswerTwo.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         }
         nextSubtractQuestion();
     } else if (playMultiplyCategory) {
@@ -229,7 +229,7 @@ optionAnswerTwo.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+          
         }
         nextMultiplyQuestion();
     } else if (playDivideCategory) {
@@ -239,7 +239,7 @@ optionAnswerTwo.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         }
         nextDivisionQuestion();
     }
@@ -260,7 +260,7 @@ optionAnswerThree.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         }
         nextAdditionQuestion();
 
@@ -271,7 +271,7 @@ optionAnswerThree.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+          
         }
         nextSubtractQuestion();
     } else if (playMultiplyCategory) {
@@ -281,7 +281,7 @@ optionAnswerThree.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+          
         }
         nextMultiplyQuestion();
     } else if (playDivideCategory) {
@@ -291,7 +291,7 @@ optionAnswerThree.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         }
         nextDivisionQuestion();
     }
@@ -313,7 +313,7 @@ optionAnswerFour.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
             
         }
         nextAdditionQuestion();
@@ -326,7 +326,7 @@ optionAnswerFour.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+          
             
         }
         nextSubtractQuestion();
@@ -338,7 +338,7 @@ optionAnswerFour.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
             
         }
         nextMultiplyQuestion();
@@ -350,7 +350,7 @@ optionAnswerFour.addEventListener('click', function () {
         } else {
             incorrect_value = scoreincorrect(parseInt(decrementScore.textContent));
             decrementScore.textContent = incorrect_value;
-            alert('Oops you got that wrong, better luck next time!');
+           
         
         }
         nextDivisionQuestion();
@@ -440,8 +440,6 @@ function nextDivisionQuestion(){
     displayOptions(answerDivide);
 }
 
-
-
 function displayadd(a, b) {
     assignOperationValuesAddMul(a, b, '+')
    
@@ -457,13 +455,21 @@ function displaymultiply(a, b) {
 function displaydivide(a, b) {
     assignOperationValuesSubDiv(a,b,'/')
 }
-
+/**
+ * Function to create random numbers 
+ * for addition and multiplication game  
+ */
 function assignOperationValuesAddMul(valueOne, valueTwo, operator){
     document.getElementById('num1').textContent = valueOne;
     document.getElementById('num2').textContent = valueTwo;
     document.getElementById('operand').textContent = operator;
 
 }
+/**
+ * Function to create random numbers 
+ * for division and subtraction game  and making sure the answer is not in minus for subtraction and
+ * in decimal for the division game
+ */
 function assignOperationValuesSubDiv(valueOne, valueTwo, operator){
     document.getElementById('num1').textContent = valueOne > valueTwo ? valueOne : valueTwo;
     document.getElementById('num2').textContent = valueOne > valueTwo ? valueTwo : valueOne;
