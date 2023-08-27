@@ -73,16 +73,14 @@ The game can be rest at any point by simply clicking on the reset button and the
 
 In order to end the game, the user can simply click on the end game button and a popup will show the users' final score and a button when clicked will take the user back to the landing page with a play button and instructions button.
 
-![End button alert](assets/readme-images/)
+![End button alert](assets/readme-images/endgame-alert.jpeg)
 
 
 ## Game Design
 ### Main Color Palette
 
-![Color Scheme](assets/images/)
-
 I have used solid colors to make my game attractive to kids. Main content colors are as follows:
-- Aqua #02afd0 (for header and game container)
+- Aqua #00ffff (for header and game container)
 - Black #000000 (title) 
 - White #fafafa (body)
 
@@ -93,7 +91,7 @@ I have many different contrasting colors for (options, categories, numbers, oper
 Google Font is used as the main font of the game. For the icon, I have used font awesome.
 
 - luckiest guy font is used with a fallback font of sans-serif.
-- Icon: rocket(fa fa-)
+- Icon: rocket(fa-solid fa-rocket)
 
 
 ### Skeleton 
@@ -123,15 +121,17 @@ The following issues were raised during the meeting with my mentor:
 
 ### Validator Testing
 - HTML 
-  * No errors were found when passing through the recommended [W3C Validator]()
+  * No errors were found when passing through the recommended [W3C Validator](https://validator.w3.org/nu/#textarea)
 - CSS
   * No errors were found when passing through the recommended [Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator)
 
 - JavaScript
-  * No errors were found when passing through the official Jshint validator
-    - The following metrics were returned:
+  * No errors were found and the following metrics were returned when passing through the official Jshint validator
+    - There are 26 functions in this file.
+    - Function with the largest signature take 3 arguments, while the median is 0.
+    - Largest function has 25 statements in it, while the median is 3.
+    - The most complex function has a cyclomatic complexity value of 9 while the median is 1.
        
-
 ## Accessibility
 
 I have made sure that I have used complimentary color contrasts throughout the game and made sure to use semantic HTML for accessibility. 
@@ -160,7 +160,7 @@ I have made sure that I have used complimentary color contrasts throughout the g
   * From the source section drop-down menu, chose the Master Branch
   * Once the master branch was selected, the page automatically refreshed and displayed a successfull deployment
 
-The link can be viewed [here]() 
+The link can be viewed [here](https://hinakhan94.github.io/math-junior/) 
 
 ## Credits
 
@@ -168,6 +168,6 @@ I would like to thanks my mentor Oluwafemi Medale for his constant support and g
 
 ### Content
 - The icon was taken from [Font Awesome](https://fontawesome.com/).
-- The instructions to how to add modal to the instructions button was taken from [Bootstrap5](https://getbootstrap.com/) and [YouTube Channel](https:).
+- The instructions to how to add modal to the instructions button was taken from [Bootstrap5](https://getbootstrap.com/).
 - The responsive mockup was generated with [Website Mockup Generator](https://techsini.com/multi-mockup/index.php)
 

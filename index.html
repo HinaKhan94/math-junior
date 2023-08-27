@@ -34,7 +34,7 @@
         <button type="button" class="btn btn-danger btn-modal" data-bs-toggle="modal" data-bs-target="#modal">Instructions!</button>
       </div>
       <!-- modal -->
-      <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="instructionsModal" aria-hidden="true">
+      <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -64,6 +64,9 @@
                 <li>
                   On choosing the wrong answer, you will be given a score of 1
                   as your incorrect answer.
+                </li>
+                <li>
+                  You win if your final correct score is higher than your incorrect score otherwise you lose.
                 </li>
                 <li>
                   The aim of the game is to test your math knowledge and get as
@@ -105,7 +108,8 @@
         <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
         <br>
         <button id="resetbtn">Reset</button>
-        <a href="index.html"><button id="endbtn">End Game</button></a>
+        <a href="index.html" id="index-link"></a>
+        <button id="endbtn">End Game</button>
       </div>
     </div>
     <script

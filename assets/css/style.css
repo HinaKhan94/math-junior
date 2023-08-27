@@ -35,7 +35,7 @@ body {
 /* Game area Title and the functions-bar */
 
 .header {
-	background-color: aqua;
+	background-color: #00ffff;
 	overflow: hidden;
 	width: 100%;
 	padding-top: 40px;
@@ -130,7 +130,7 @@ body {
 	max-width: 642px;
 	max-height: 830px;
 	padding: 1%;
-	background-color: aqua;
+	background-color: #00ffff;
 
 }
 
@@ -189,14 +189,6 @@ body {
 	font-family: luckiest guy, sans-serif;
 
 }
-/*
-.optionbtn:focus,
-.optionbtn:hover {
-	background-color: green;
-	color: white;
-	cursor: pointer;
-
-}  
 
 /* Scores section */
 
@@ -244,6 +236,14 @@ body {
 
 .hide {
 	display: none;
+}
+
+/* media queries with max-width 595 */
+
+@media screen and (max-width: 595px) {
+	.scores {
+		font-size: 15px;
+	}
 }
 
 /* media queries with max-width 465 */
