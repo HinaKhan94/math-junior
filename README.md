@@ -20,7 +20,7 @@ Title is at the top middle of the page. When the page loads, the user is able to
 
 This button allows the user to start the game. The section is hidden once the user clicks on the play button and the game area appears that allows the user to play with answering questions. 
 
-![Start image](assets/readme-images/landing-btns.png)
+![Start image](assets/readme-images/landing-btns.jpeg)
 
 ### **The Instructions Button**
 
