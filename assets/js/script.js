@@ -1,3 +1,4 @@
+
 const startButton = document.getElementById('start-btn');
 const endGameBtn = document.getElementById('endbtn');
 const gameCategories = document.getElementById('function-bar');
